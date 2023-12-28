@@ -11,5 +11,5 @@ name = "Xeth Hung"
 email = "admin@xethh.me"
 
 [project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
-Issues = "https://github.com/pypa/sampleproject/issues"
+Homepage = "https://github.com/xh-dev-py/map-utils-xethhung12"
+Issues = "https://github.com/xh-dev-py/map-utils-xethhung12/issues"

@@ -1,7 +1,7 @@
 # map-utils-xethhung12
 
 A simple library for google map or map related operation.
-* Find denso map code from google map link (make use exists [website](https://saibara.sakura.ne.jp/map/convgeo.cgi))
+* Find denso map code from google map link (make use exists [website](https://saibara.sakura.ne.jp/map/convgeo.cgi)
 * Get real path from google map from `url shortening`
 
 # build
@@ -18,4 +18,9 @@ Write token to file `token.txt`
 Set `token` variable with command `token=$(cat token.txt)`
 ```shell
 twine upload dist/* -u __token__ -p $token
+```
+
+# update package version
+```shell
+./patch.sh
 ```
