@@ -3,3 +3,4 @@ dist
 src/**/*.egg-info
 .idea
 src/**/__pycache__
+token.txt

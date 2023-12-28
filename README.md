@@ -12,3 +12,10 @@ run build script:
 ```shell
 ./py-build.sh
 ```
+
+# upload 
+Write token to file `token.txt`
+Set `token` variable with command `token=$(cat token.txt)`
+```shell
+twine upload dist/* -u __token__ -p $token
+```
