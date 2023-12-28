@@ -9,9 +9,9 @@
 name: Upload Python Package
 
 on:
-  release:
-    types: [published]
-
+  push:
+    tags:
+      "v*"
 permissions:
   contents: read
 
@@ -29,6 +29,16 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
     - name: Build package
       run: ./py-build.sh
     - name: Publish package
