@@ -3,3 +3,5 @@ beautifulsoup4
 build
 twine
 xh-py-project-versioning
+pyjsparser
+pyyaml
