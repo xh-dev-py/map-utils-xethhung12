@@ -4,6 +4,7 @@ import re
 import zoneinfo
 from dataclasses import dataclass, asdict
 from datetime import datetime
+from enum import Enum
 
 import requests
 import yaml
@@ -25,7 +26,7 @@ class SimpleDataClass:
 
 def custom_asdict_factory(data):
     def convert_value(obj):
-        if isinstance(obj, dt.datetime):
+        if isinstance(obj, datetime):
             # return obj.astimezone(hktz).strftime(time_format)
             return to_time_str(obj)
         elif isinstance(obj, Enum):
