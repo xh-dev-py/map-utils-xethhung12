@@ -1,7 +1,8 @@
 import hashlib
 import json
 import re
-from dataclasses import dataclass
+import zoneinfo
+from dataclasses import dataclass, asdict
 from datetime import datetime
 
 import requests
@@ -10,23 +11,45 @@ from bs4 import BeautifulSoup
 from pyjsparser import PyJsParser
 
 from map_utils_xethhung12.Locator import LatLon
+hktz = zoneinfo.ZoneInfo("Asia/Hong_Kong")
+time_format = '%Y-%m-%dT%H:%M:%S%z'
+def to_time_str(d):
+    return d.astimezone(hktz).strftime(time_format)
+
+def from_str_to_time(date_str):
+    return datetime.strptime(date_str.replace(" +", "+"), time_format).astimezone(hktz)
+
+class SimpleDataClass:
+    def dict(self) -> dict:
+        return asdict(self, dict_factory=custom_asdict_factory)
+
+def custom_asdict_factory(data):
+    def convert_value(obj):
+        if isinstance(obj, dt.datetime):
+            # return obj.astimezone(hktz).strftime(time_format)
+            return to_time_str(obj)
+        elif isinstance(obj, Enum):
+            return obj.name
+        return obj
+
+    return dict((k, convert_value(v)) for k, v in data)
 
 @dataclass
-class GLocation:
+class GLocation(SimpleDataClass):
     id: str
     latlon: LatLon
     name: str
     description: str
 
 @dataclass
-class SavedPlaces:
+class SavedPlaces(SimpleDataClass):
     url: str
     name: str
     description: str
     locations: [GLocation]
 
 @dataclass
-class KV:
+class KV(SimpleDataClass):
     key: str
     value: str
 
