@@ -4,3 +4,5 @@ src/**/*.egg-info
 .idea
 src/**/__pycache__
 token.txt
+export-deployment-keys.sh
+
