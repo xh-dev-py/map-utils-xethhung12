@@ -11,7 +11,8 @@ import yaml
 from bs4 import BeautifulSoup
 from pyjsparser import PyJsParser
 
-from map_utils_xethhung12.Locator import LatLon
+from map_utils_xethhung12.GridSystem import LatLon
+
 hktz = zoneinfo.ZoneInfo("Asia/Hong_Kong")
 time_format = '%Y-%m-%dT%H:%M:%S%z'
 def to_time_str(d):

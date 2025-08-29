@@ -3,7 +3,7 @@ from typing import Optional
 import requests
 from bs4 import BeautifulSoup
 from map_utils_xethhung12.GoogleMap import get_url_from_latlon_object
-from map_utils_xethhung12.Locator import LatLon
+from map_utils_xethhung12.GridSystem import LatLon
 
 
 def from_latlon_obj(lat_lon: LatLon):
