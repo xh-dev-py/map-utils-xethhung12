@@ -6,3 +6,4 @@ xh-py-project-versioning
 pyjsparser
 pyyaml
 tzdata
+geopy
